@@ -1,4 +1,8 @@
+*_tmp/
+opensource/
+build/
 .vscode/
 .cache/
-build/
-opensource/
+.ipynb_checkpoints/
+.empty/
+*.log
