@@ -1,0 +1,29 @@
+services:
+  compiler_dev:
+    image: compiler_dev:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: compiler_dev
+    network_mode: bridge
+    user: "1000:0"
+    restart: always
+    tty: true
+    privileged: true
+    ports:
+      - "13222:22"
+      - "13288:8888"
+    environment:
+      TZ: 'Asia/Shanghai'
+    volumes:
+      - /home/george/workspace/compiler_dev:/workspace
+      - /home/george/.vscode-server/:/home/george/.vscode-server/
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: "all"
+              capabilities: [gpu]
