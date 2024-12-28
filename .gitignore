@@ -6,3 +6,6 @@ build/
 .ipynb_checkpoints/
 .empty/
 *.log
+toolchain/
+simulator/
+*.riscv
