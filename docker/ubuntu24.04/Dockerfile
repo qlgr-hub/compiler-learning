@@ -36,8 +36,8 @@ RUN apt-get install -y --no-install-recommends \
 
 
 # my own proxy settings
-ENV http_proxy=http://192.168.3.126:7890
-ENV https_proxy=http://192.168.3.126:7890
+# ENV http_proxy=http://192.168.3.126:7890
+# ENV https_proxy=http://192.168.3.126:7890
 
 USER root
 WORKDIR /tmp
