@@ -12,3 +12,5 @@ simulator/
 *.dot
 *.ll
 *.s
+.clangd
+*.ast
