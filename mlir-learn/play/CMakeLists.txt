@@ -23,6 +23,9 @@ include(AddLLVM)
 include(AddMLIR)
 include(HandleLLVMOptions)
 
+# set(MLIR_ENABLE_BINDINGS_PYTHON ON)
+# message("MLIR_ENABLE_BINDINGS_PYTHON ${MLIR_ENABLE_BINDINGS_PYTHON}")
+
 if(MLIR_ENABLE_BINDINGS_PYTHON)
   include(MLIRDetectPythonEnv)
   mlir_configure_python_dev_packages()

@@ -1,23 +1,31 @@
-/*===- TableGen'erated file -------------------------------------*- C++ -*-===*\
-|*                                                                            *|
-|* Dialect Definitions                                                        *|
-|*                                                                            *|
-|* Automatically generated file, do not edit!                                 *|
-|* From: Play.td                                                              *|
-|*                                                                            *|
-\*===----------------------------------------------------------------------===*/
-
 #include "Play/Play.hxx"
+#include "mlir/IR/Builders.h"
+#include "mlir/IR/DialectImplementation.h"
+#include "llvm/ADT/TypeSwitch.h"
 
-MLIR_DEFINE_EXPLICIT_TYPE_ID(::mlir::play::PlayDialect)
-namespace mlir {
-namespace play {
 
-PlayDialect::PlayDialect(::mlir::MLIRContext *context)
-    : ::mlir::Dialect(getDialectNamespace(), context, ::mlir::TypeID::get<PlayDialect>()) {
-        initialize();
-    }
+using namespace mlir;
+using namespace mlir::play;
 
-PlayDialect::~PlayDialect() = default;
-} // namespace play
-} // namespace mlir
+#include "Play/PlayDialect.cpp.inc"
+
+#define GET_OP_CLASSES
+#include "Play/Play.cpp.inc"
+
+#define GET_TYPEDEF_CLASSES
+#include "Play/PlayTypes.cpp.inc"
+
+void PlayDialect::initialize() {
+  addOperations<
+#define GET_OP_LIST
+#include "Play/Play.cpp.inc"
+      >();
+  registerTypes();
+}
+
+void PlayDialect::registerTypes() {
+    addTypes<
+  #define GET_TYPEDEF_LIST
+  #include "Play/PlayTypes.cpp.inc"
+        >();
+  }
