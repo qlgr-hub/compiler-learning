@@ -18,7 +18,6 @@ declare_mlir_dialect_python_bindings(
   TD_FILE dialects/Play.td
   SOURCES
     dialects/play_pybind11.py
-    dialects/play_nanobind.py
   DIALECT_NAME play)
 
 
@@ -32,15 +31,15 @@ declare_mlir_python_extension(PlayPythonSources.Pybind11Extension
   PYTHON_BINDINGS_LIBRARY pybind11
 )
 
-declare_mlir_python_extension(PlayPythonSources.NanobindExtension
-  MODULE_NAME _playDialectsNanobind
-  ADD_TO_PARENT PlayPythonSources
-  SOURCES
-    PlayExtensionNanobind.cxx
-  EMBED_CAPI_LINK_LIBS
-    PlayCAPI
-  PYTHON_BINDINGS_LIBRARY nanobind
-)
+# declare_mlir_python_extension(PlayPythonSources.NanobindExtension
+#   MODULE_NAME _playDialectsNanobind
+#   ADD_TO_PARENT PlayPythonSources
+#   SOURCES
+#     PlayExtensionNanobind.cxx
+#   EMBED_CAPI_LINK_LIBS
+#     PlayCAPI
+#   PYTHON_BINDINGS_LIBRARY nanobind
+# )
 
 
 ################################################################################
