@@ -11,7 +11,7 @@ RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libcurl4-openssl-dev wget git pkg-config sudo ssh libssl-dev pbzip2 pv bzip2 unzip devscripts lintian fakeroot dh-make build-essential \
     net-tools openssh-server aria2 vim default-jre graphviz nasm libjpeg-dev libpng-dev libtiff-dev zlib1g-dev libedit-dev libxml2-dev \
-    gnupg openssl clinfo pocl-opencl-icd ninja-build zip lsb-release iputils-ping device-tree-compiler libboost-regex-dev \
+    gnupg openssl clinfo pocl-opencl-icd ninja-build zip lsb-release iputils-ping device-tree-compiler libboost-regex-dev curl \
     libboost-system-dev ccache
 
 
@@ -41,12 +41,6 @@ RUN apt-get install -y --no-install-recommends \
 
 USER root
 WORKDIR /tmp
-
-
-# Install llvm
-# RUN aria2c https://apt.llvm.org/llvm.sh  && chmod +x llvm.sh && ./llvm.sh 20
-# ENV CC=clang-20
-# ENV CXX=clang++-20
 
 
 # Install cmake
